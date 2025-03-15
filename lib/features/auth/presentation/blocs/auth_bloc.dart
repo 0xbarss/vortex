@@ -24,11 +24,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         required this.logout,
         required this.forgotPassword,
         required this.removeAccount}) : super(AuthInitial()) {
+    on<AppStarted>(_onAppStarted);
     on<LoginRequested>(_onLoginRequested);
     on<RegisterRequested>(_onRegisterRequested);
     on<LogoutRequested>(_onLogoutRequested);
     on<ForgotPasswordRequested>(_onForgotPasswordRequested);
     on<RemoveAccountRequested>(_onRemoveAccountRequested);
+  }
+
+  Future<void> _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
+    emit(AuthUnauthenticated());
   }
 
   Future<void> _onLoginRequested(LoginRequested event, Emitter<AuthState> emit) async {

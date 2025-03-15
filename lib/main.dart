@@ -40,7 +40,7 @@ Future<void> main() async {
                 logout: Logout(authRepository),
                 forgotPassword: ForgotPassword(authRepository),
                 removeAccount: RemoveAccount(authRepository),
-              );
+              )..add(AppStarted());
             },
           ),
         ],
