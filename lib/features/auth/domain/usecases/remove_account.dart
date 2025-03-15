@@ -1,11 +1,11 @@
 import 'package:vortex/features/auth/data/repositories/auth_repository.dart';
 
-class Logout {
+class RemoveAccount {
   final AuthRepository authRepository;
 
-  Logout(this.authRepository);
+  RemoveAccount(this.authRepository);
 
   Future<dynamic> call() async {
-    return await authRepository.logout();
+    return await authRepository.removeAccount();
   }
 }
